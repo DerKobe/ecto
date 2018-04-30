@@ -758,6 +758,9 @@ defmodule Ecto.Type do
 
   ## Naive datetime
 
+  defp cast_naive_datetime({:ok, naive_datetime}) do
+    cast_naive_datetime(naive_datetime)
+  end
   defp cast_naive_datetime(binary) when is_binary(binary) do
     case NaiveDateTime.from_iso8601(binary) do
       {:ok, _} = ok -> ok
